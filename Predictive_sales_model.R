@@ -71,7 +71,7 @@ ui<- shinyUI(
 #server part 
 server <- shinyServer(function(input,output){
   output$arima <- renderPlot({
-    hl = input$Horizen
+    hl <- input$Horizen
     i <- input$Type
     kk <- input$store
     print(input$store)
