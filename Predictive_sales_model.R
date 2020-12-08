@@ -166,7 +166,7 @@ server <- shinyServer(function(input,output){
     }
     })
   output$overall <- renderPlot({
-    hl = input$Horizen1
+    hl <- input$Horizen1
     salesdata_cleaned %>% group_by(Date) %>% summarise(WS = sum(Weekly_Sales)) -> data_overallstore
     Salesdates3 <- as.Date(data_overallstore$Date, "%Y/%m/%d")
     aoverallstore <- zoo(data_overallstore[,2, drop=FALSE], order.by = Salesdates3)
@@ -223,7 +223,7 @@ server <- shinyServer(function(input,output){
     if(a1[2,2] < a2[2,2]){data_overallstores %>%  auto.arima() %>% forecast(h=hl)}
   })
   output$auto.arima3 <- renderTable({
-    hl = input$Horizen
+    hl <- input$Horizen
     i <- input$Type
     kk <- input$store
     if(input$Type == "A"){
