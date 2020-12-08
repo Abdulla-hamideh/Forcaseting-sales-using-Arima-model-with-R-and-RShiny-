@@ -195,7 +195,7 @@ server <- shinyServer(function(input,output){
       data_overallstores %>% ets() %>% forecast(h=hl) %>% autoplot()}
   })
   output$auto.arima4 <- renderTable({
-    hl = input$Horizen1
+    hl <- input$Horizen1
     salesdata_cleaned %>% group_by(Date) %>% summarise(WS = sum(Weekly_Sales)) -> data_overallstore
     Salesdates3 <- as.Date(data_overallstore$Date, "%Y/%m/%d")
     aoverallstore <- zoo(data_overallstore[,2, drop=FALSE], order.by = Salesdates3)
